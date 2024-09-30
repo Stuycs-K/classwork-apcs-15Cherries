@@ -13,6 +13,23 @@ public class MyArrays{
     System.out.println("[0] has an address of "+ anArray + " and the copy has an address of " + returnCopy(new int [] {0}));
     System.out.println("For [0], returnCopy copies " + aryToStrings(returnCopy(new int [] {0})));
     System.out.println("Are the elements the same? " + sameElements(anArray, returnCopy(new int [] {0})));
+    anArray = new int [] {100, 100, 100};
+    System.out.println("[100, 100, 100] has an address of "+ anArray + " and the copy has an address of " + returnCopy(new int [] {100, 100, 100}));
+    System.out.println("For [100, 100, 100], returnCopy copies " + aryToStrings(returnCopy(new int [] {100, 100, 100})));
+    System.out.println("Are the elements the same? " + sameElements(anArray, returnCopy(new int [] {100, 100, 100})));
+    anArray = new int [] {34, 51, 76, 89, 24};
+    System.out.println("[34, 51, 76, 89, 24] has an address of "+ anArray + " and the copy has an address of " + returnCopy(new int [] {34, 51, 76, 89, 240}));
+    System.out.println("For [34, 51, 76, 89, 24], returnCopy copies " + aryToStrings(returnCopy(new int [] {34, 51, 76, 89, 24})));
+    System.out.println("Are the elements the same? " + sameElements(anArray, returnCopy(new int [] {34, 51, 76, 89, 24})));
+
+    System.out.println("----------------------------");
+
+    System.out.println("concatArray combines [1, 2, 3, 4, 5] and [6, 7, 8, 9, 10] to " + aryToStrings(concatArray(new int [] {1 , 2, 3, 4, 5}, new int [] {6 , 7, 8, 9, 10})));
+    System.out.println("concatArray combines [0] and [75, 61] to " + aryToStrings(concatArray(new int [] {0}, new int [] {75, 61})));
+    System.out.println("concatArray combines [7, 8, 9] and [9, 8, 7] to " + aryToStrings(concatArray(new int [] {7, 8, 9}, new int [] {9, 8, 7})));
+    System.out.println("concatArray combines [74, 12, 35, 10, 18] and [139, 12, 107, 12] to " + aryToStrings(concatArray(new int [] {74, 12, 35, 10, 18}, new int [] {139, 12, 107, 12})));
+    System.out.println("concatArray combines [0] and [6, 7, 8, 9, 10] to " + aryToStrings(concatArray(new int [] {0}, new int [] {6 , 7, 8, 9, 10})));
+
   }
 
   public static String aryToStrings (int [] nums){
