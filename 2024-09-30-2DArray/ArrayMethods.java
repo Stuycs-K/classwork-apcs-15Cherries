@@ -67,12 +67,11 @@ public static int arr2DSum(int[][]nums){
   */
 public static int[][] swapRC(int[][]nums){
   int [][] newArr = new int [nums[0].length][nums.length];
-  //int index = 0;
-  //for (int i = 0; i < nums.length; i++){
-    //for (int x = 0; i < nums[i].length; x++){
-      //newArr[i][j] = nums[]
-    //}
-  //}
+  for (int i = 0; i < nums.length; i++){
+    for (int x = 0; x < nums[i].length; x++){
+      newArr[x][i] = nums[i][x];
+    }
+  }
   return newArr;
 }
 }
