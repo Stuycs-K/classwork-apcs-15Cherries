@@ -6,9 +6,26 @@ public class ArrayMethods{
 
   public static void main (String [] args){
     System.out.println(arrToString(new int [] {2, 3, 4, 9}));
-    System.out.println(arrToString(new int [] [] { {2, 3, 4}, {5, 6, 7}, {2, 4, 9} }));
-    System.out.println(arr2DSum(new int [] [] { {2, 3, 4}, {5, 6, 7}, {2, 4, 9} }));
-    System.out.println(arrToString(swapRC(new int [] [] {{1,2,3},{4,5,6}})));
+    System.out.println(arrToString(new int [] {5, 3, 1, 0}));
+    System.out.println(arrToString(new int [] {}));
+
+    System.out.println(arrToString(new int [] [] { {2, 3, 4}, {5, 6, 7}, {2, 4, 9} }));           //sqaure array
+    System.out.println(arrToString(new int [] [] { {2, 3, 4}, {5, 6}, {2, 4, 9, 3} }));           //ragged array
+    System.out.println(arrToString(new int [] [] { {} }));                                        //empty array
+    System.out.println(arrToString(new int [] [] { {2, 3, 4, 10}, {5, 6, 7, 7}, {2, 4, 9, 8} })); //rectangular array
+    System.out.println(arrToString(new int [] [] { {1, 9, 4, 9, 1, 0}, {9, 3, 4, 0, 1}, {3, 7, 5}, {8, 2, 4, 6} }));
+
+    System.out.println(arr2DSum(new int [] [] { {2, 3, 4}, {5, 6, 7}, {2, 4, 9} }));              //sqaure array
+    System.out.println(arr2DSum(new int [] [] { {2, 3, 4}, {5, 6}, {2, 4, 9, 3} } ));             //ragged array
+    System.out.println(arr2DSum(new int [] [] { {} }));                                           //empty array
+    System.out.println(arr2DSum(new int [] [] { {2, 3, 4, 10}, {5, 6, 7, 7}, {2, 4, 9, 8} }));    //rectangular array
+    System.out.println(arr2DSum(new int [] [] { {1, 9, 4, 9, 1, 0}, {9, 3, 4, 0, 1}, {3, 7, 5}, {8, 2, 4, 6} }));
+
+    System.out.println(arrToString(swapRC(new int [] [] {{1,2,3},{4,5,6}})));                     //rectangular array
+    System.out.println(arrToString(swapRC(new int [] [] { {} })));                                //empty array
+    System.out.println(arrToString(swapRC(new int [] [] { {2, 3, 4, 10}, {5, 6, 7, 7}, {2, 4, 9, 8}, {9, 4, 1, 0}}))); //sqaure array
+    System.out.println(arrToString(swapRC(new int [] [] { {1, 4, 7, 10}, {3, 9, 12, 30}, {3, 6, 9, 8}, {2, 7, 5, 1}, {4, 1, 3, 8}})));
+
 
   }
 
