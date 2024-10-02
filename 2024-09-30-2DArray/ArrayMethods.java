@@ -25,6 +25,7 @@ public class ArrayMethods{
     System.out.println(arrToString(swapRC(new int [] [] { {} })));                                //empty array
     System.out.println(arrToString(swapRC(new int [] [] { {2, 3, 4, 10}, {5, 6, 7, 7}, {2, 4, 9, 8}, {9, 4, 1, 0}}))); //sqaure array
     System.out.println(arrToString(swapRC(new int [] [] { {1, 4, 7, 10}, {3, 9, 12, 30}, {3, 6, 9, 8}, {2, 7, 5, 1}, {4, 1, 3, 8}})));
+    System.out.println("[2, -3, 6, -9], [9, -8, 4, 2], [5, -1, -3, 7]] returns" + arrToString(replaceNegative(new int [][] { {2, -3, 6, -9}, {9, -8, 4, 2}, {5, -1, -3, 7} })));
   }
 
   //2. Copy your arrToString method from before.
@@ -89,4 +90,25 @@ public class ArrayMethods{
     }
     return newArr;
   }
+
+  //3. Modify a given 2D array of integer as follows:
+//Replace all the negative values:
+//-When the row number is the same as the column number replace
+//that negative with the value 1
+//-All other negatives replace with 0
+public static int [][] replaceNegative(int[][] vals){
+  for (int i = 0; i < vals.length; i++){
+    for (int x = 0; x < vals[i].length; x++){
+      if (vals[i][x] < 0){
+        if (i == x){
+          vals[i][x] = 1;
+        }
+        else{
+          vals[i][x] = 0;
+        }
+      }
+    }
+  }
+  return vals;
+}
 }
