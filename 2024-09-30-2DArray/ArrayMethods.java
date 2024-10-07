@@ -26,6 +26,12 @@ public class ArrayMethods{
     System.out.println(arrToString(swapRC(new int [] [] { {2, 3, 4, 10}, {5, 6, 7, 7}, {2, 4, 9, 8}, {9, 4, 1, 0}}))); //sqaure array
     System.out.println(arrToString(swapRC(new int [] [] { {1, 4, 7, 10}, {3, 9, 12, 30}, {3, 6, 9, 8}, {2, 7, 5, 1}, {4, 1, 3, 8}})));
     System.out.println("[2, -3, 6, -9], [9, -8, 4, 2], [5, -1, -3, 7]] returns" + arrToString(replaceNegative(new int [][] { {2, -3, 6, -9}, {9, -8, 4, 2}, {5, -1, -3, 7} })));
+    int [][] arr = new int [] [] { {2, 3, 4}, {5, 6}, {7, 8, 9, 10}};
+    int [][] Copy = copy(arr);
+    System.out.println("For [[2, 3, 4], [5, 6], [7, 8, 9, 10]] copies " + arrToString(Copy));
+    arr = new int [] [] { {2, 3, 4}, {5, 6}, {7, 8, 10, 10}};
+    System.out.println("When only the original is changed to [[2, 3, 4], [5, 6], [7, 8, 10, 10]]: " + arrToString(Copy));
+
   }
 
   //2. Copy your arrToString method from before.
@@ -111,4 +117,24 @@ public static int [][] replaceNegative(int[][] vals){
   }
   return vals;
 }
+
+//4. Make a copy of the given 2d array.
+//When testing : make sure that changing the original does NOT change the copy.
+//DO NOT use any built in methods that "copy" an array.
+//You SHOULD write a helper method for this.
+//If you don't see a good way to do that, you should stop and look at prior methods.
+
+public static int[][] copy(int[][] nums){
+  int [][] copy = new int [nums.length] [nums[0].length];     //temporary template
+  int subArrayLength = 1;                                     //to keep track of length of each array
+  for (int i = 0; i < nums.length; i++){
+    subArrayLength = nums[i].length;
+    copy[i] = new int [subArrayLength];                       //copy array updated to have the proper spaces
+    for (int x = 0; x < nums[i].length; x++){
+      copy[i][x] = nums[i][x];
+    }
+  }
+  return copy;
+}
+
 }
