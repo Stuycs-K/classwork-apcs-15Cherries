@@ -13,6 +13,11 @@ public class ArrayDemo{
     arr = new int [][] { {0, 7, 8, 0}, {8, 0, 2, 1}, {0, 3, 4, 5, 0}};
     System.out.println(Arrays.deepToString(arr) + " has " + countZeros2D(arr) + " zeros");
     System.out.println("the elements of " + Arrays.deepToString(arr) + " have a sum of " + arr2DSum(arr));
+    int [][] negArr = new int [][] { {2, -3, 6, -9}, {9, -8, 4, 2}, {5, -1, -3, 7} };
+    System.out.println("orginal array" + Arrays.deepToString(negArr));
+    replaceNegative(negArr);
+    System.out.println("changed array" + Arrays.deepToString(negArr));
+
 
   }
 
@@ -74,7 +79,18 @@ public class ArrayDemo{
   //that negative with the value 1
   //-All other negatives replace with 0
   public static void replaceNegative(int[][] vals){
-
+    for (int i = 0; i < vals.length; i++){
+      for (int x = 0; x < vals[i].length; x++){
+        if (vals[i][x] < 0){
+          if (i == x){
+            vals[i][x] = 1;
+          }
+          else{
+            vals[i][x] = 0;
+          }
+        }
+      }
+    }
   }
 
   //4. Make a copy of the given 2d array.
