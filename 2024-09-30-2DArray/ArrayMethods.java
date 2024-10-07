@@ -25,19 +25,45 @@ public class ArrayMethods{
     System.out.println(arrToString(swapRC(new int [] [] { {} })));                                //empty array
     System.out.println(arrToString(swapRC(new int [] [] { {2, 3, 4, 10}, {5, 6, 7, 7}, {2, 4, 9, 8}, {9, 4, 1, 0}}))); //sqaure array
     System.out.println(arrToString(swapRC(new int [] [] { {1, 4, 7, 10}, {3, 9, 12, 30}, {3, 6, 9, 8}, {2, 7, 5, 1}, {4, 1, 3, 8}})));
-    System.out.println("[2, -3, 6, -9], [9, -8, 4, 2], [5, -1, -3, 7]] returns" + arrToString(replaceNegative(new int [][] { {2, -3, 6, -9}, {9, -8, 4, 2}, {5, -1, -3, 7} })));
+
+    int [][] negArr = new int [][] { {2, -3, 6, -9}, {9, -8, 4, 2}, {5, -1, -3, 7} };
+    System.out.println("orginal array" + arrToString(negArr));
+    replaceNegative(negArr);
+    System.out.println("changed array" + arrToString(negArr));
+    negArr = new int [][] { {} };
+    System.out.println("orginal array" + arrToString(negArr));
+    replaceNegative(negArr);
+    System.out.println("changed array" + arrToString(negArr));
+    negArr = new int [][] { {-9}, {-10, 9, 3, -8}, {0, -1, -7, -5} };
+    System.out.println("orginal array" + arrToString(negArr));
+    replaceNegative(negArr);
+    System.out.println("changed array" + arrToString(negArr));
+    negArr = new int [][] { {}, {-10, 3, -8}, {0, -1, -7, -5} };
+    System.out.println("orginal array" + arrToString(negArr));
+    replaceNegative(negArr);
+    System.out.println("changed array" + arrToString(negArr));
+    negArr = new int [][] { {-3, 4, 5, -7}, {10, -9, 32, -8}, {12, -1, -7, -5}, {2, 3, 8, -9, 1}};
+    System.out.println("orginal array" + arrToString(negArr));
+    replaceNegative(negArr);
+    System.out.println("changed array" + arrToString(negArr));
+
     int [][] arr = new int [] [] { {2, 3, 4}, {5, 6}, {7, 8, 9, 10}};
     int [][] Copy = copy(arr);
-    System.out.println("For [[2, 3, 4], [5, 6], [7, 8, 9, 10]] copies " + arrToString(Copy));
+    System.out.println("orginal array: " + arrToString(arr) + " copied array: " + arrToString(Copy));
     arr = new int [] [] { {2, 3, 4}, {5, 6}, {7, 8, 10, 10}};
-    System.out.println("When only the original is changed to [[2, 3, 4], [5, 6], [7, 8, 10, 10]]: " + arrToString(Copy));
+    System.out.println("only orginal array changed to: " + arrToString(arr) + " copied array: " + arrToString(Copy));
     arr = new int [] [] { {10, 7, 3}, {8, 2, 6}, {9, 1, 4}};
     Copy = copy(arr);
     System.out.println("orginal array: " + arrToString(arr) + " copied array: " + arrToString(Copy));
     arr = new int [] [] { {}};
     Copy = copy(arr);
     System.out.println("orginal array: " + arrToString(arr) + " copied array: " + arrToString(Copy));
-
+    arr = new int [][] { {1, 2, 3, 4, 5}, {6, 7, 8}, {9, 10, 11, 12}, {13, 14}, {15, 16, 17, 18, 19}, {20, 21, 22}};
+    Copy = copy(arr);
+    System.out.println("orginal array: " + arrToString(arr) + " copied array: " + arrToString(Copy));
+    arr = new int [] [] { {10, 7, 3}, {}, {9, 1, 4, 7, 3}};
+    Copy = copy(arr);
+    System.out.println("orginal array: " + arrToString(arr) + " copied array: " + arrToString(Copy));
 
   }
 
@@ -104,44 +130,44 @@ public class ArrayMethods{
     return newArr;
   }
 
-  //3. Modify a given 2D array of integer as follows:
-//Replace all the negative values:
-//-When the row number is the same as the column number replace
-//that negative with the value 1
-//-All other negatives replace with 0
-public static int [][] replaceNegative(int[][] vals){
-  for (int i = 0; i < vals.length; i++){
-    for (int x = 0; x < vals[i].length; x++){
-      if (vals[i][x] < 0){
-        if (i == x){
-          vals[i][x] = 1;
-        }
-        else{
-          vals[i][x] = 0;
+    //3. Modify a given 2D array of integer as follows:
+  //Replace all the negative values:
+  //-When the row number is the same as the column number replace
+  //that negative with the value 1
+  //-All other negatives replace with 0
+  public static void replaceNegative(int[][] vals){
+    for (int i = 0; i < vals.length; i++){
+      for (int x = 0; x < vals[i].length; x++){
+        if (vals[i][x] < 0){
+          if (i == x){
+            vals[i][x] = 1;
+          }
+          else{
+            vals[i][x] = 0;
+          }
         }
       }
     }
   }
-  return vals;
-}
 
-//4. Make a copy of the given 2d array.
-//When testing : make sure that changing the original does NOT change the copy.
-//DO NOT use any built in methods that "copy" an array.
-//You SHOULD write a helper method for this.
-//If you don't see a good way to do that, you should stop and look at prior methods.
-
-public static int[][] copy(int[][] nums){
-  int [][] copy = new int [nums.length] [nums[0].length];     //temporary template
-  int subArrayLength = 1;                                     //to keep track of length of each array
-  for (int i = 0; i < nums.length; i++){
-    subArrayLength = nums[i].length;
-    copy[i] = new int [subArrayLength];                       //copy array updated to have the proper spaces
-    for (int x = 0; x < nums[i].length; x++){
-      copy[i][x] = nums[i][x];
+  //4. Make a copy of the given 2d array.
+  //When testing : make sure that changing the original does NOT change the copy.
+  //DO NOT use any built in methods that "copy" an array.
+  //You SHOULD write a helper method for this.
+  //If you don't see a good way to do that, you should stop and look at prior methods.
+  public static int [] copyEachArray(int [] array){
+    int [] newArray = new int [array.length];
+    for (int i = 0; i < array.length; i++){
+      newArray[i] = array[i];
     }
+    return newArray;
   }
-  return copy;
-}
+  public static int[][] copy(int[][] nums){
+    int [][] copy = new int [nums.length] [nums[0].length];
+    for (int i = 0; i < nums.length; i++){
+      copy[i] = copyEachArray(nums[i]);
+    }
+    return copy;
+  }
 
 }
