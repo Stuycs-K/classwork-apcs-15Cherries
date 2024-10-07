@@ -31,6 +31,13 @@ public class ArrayMethods{
     System.out.println("For [[2, 3, 4], [5, 6], [7, 8, 9, 10]] copies " + arrToString(Copy));
     arr = new int [] [] { {2, 3, 4}, {5, 6}, {7, 8, 10, 10}};
     System.out.println("When only the original is changed to [[2, 3, 4], [5, 6], [7, 8, 10, 10]]: " + arrToString(Copy));
+    arr = new int [] [] { {10, 7, 3}, {8, 2, 6}, {9, 1, 4}};
+    Copy = copy(arr);
+    System.out.println("orginal array: " + arrToString(arr) + " copied array: " + arrToString(Copy));
+    arr = new int [] [] { {}};
+    Copy = copy(arr);
+    System.out.println("orginal array: " + arrToString(arr) + " copied array: " + arrToString(Copy));
+
 
   }
 
