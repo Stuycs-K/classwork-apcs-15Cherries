@@ -19,7 +19,9 @@ public class ArrayDemo{
     System.out.println("changed array: " + Arrays.deepToString(negArr));
     arr = new int [] [] { {10, 7, 3}, {8, 2, 6}, {9, 1, 4}};
     int [][] Copy = copy(arr);
-    System.out.println("orginal array: " + arrToString(arr) + " copied array: " + arrToString(Copy));
+    System.out.println("orginal array: " + Arrays.deepToString(arr) + " copied array: " + Arrays.deepToString(Copy));
+    System.out.println(Arrays.deepToString(arr) + " has elements swapped to " + Arrays.deepToString(swapRC(arr)));
+    System.out.println(htmlTable(new int[][]{{1,2},{3}}));                    //rectangular array
 
 
   }
@@ -120,7 +122,13 @@ public class ArrayDemo{
   //   You may assume the array is rectangular and neither rows nor cols is 0.
   //   e.g. swapRC({{1,2,3},{4,5,6}}) returns {{1,4},{2,5},{3,6}}
   public static int[][] swapRC(int[][]nums){
-    return new int[1][1];
+    int [][] newArr = new int [nums[0].length][nums.length];
+    for (int i = 0; i < nums.length; i++){
+      for (int x = 0; x < nums[i].length; x++){
+        newArr[x][i] = nums[i][x];
+      }
+    }
+    return newArr;
   }
 
   //6. Make an HTML table by putting a table tag around the entire 2d array,
@@ -130,6 +138,15 @@ public class ArrayDemo{
   //   e.g. htmlTable(new int[][]{{1,2},{3}})  returns:
   // "<table><tr><td>1</td><td>2</td></tr><tr><td>3</td></tr></table>"
   public static String htmlTable(int[][]nums){
-    return "";
+    String newString = "<table>";
+    for (int i = 0; i < nums.length; i++){
+      newString = newString + "<tr>";
+      for (int x = 0; x < nums[i].length; x++){
+        newString = newString + "<td>" + nums[i][x] + "</td>";
+      }
+      newString = newString + "</tr>";
+    }
+    return newString += "</table>";
+
   }
 }
