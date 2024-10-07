@@ -10,6 +10,8 @@ public class ArrayDemo{
     System.out.println("Arrays.toString prints " + Arrays.toString(array) + " and my arrToString prints " + arrToString(array));
     int [][] arr = new int [][] { {1, 2, 3}, {4, 5}, {6, 7, 8, 9}};
     System.out.println("Arrays.toString prints " + (Arrays.deepToString(arr)) + " and my arrToString prints " + arrToString(arr));
+    arr = new int [][] { {0, 7, 8, 0}, {8, 0, 2, 1}, {0, 3, 45, 0}};
+    System.out.println(Arrays.deepToString(arr) + " has " + countZeros2D(arr) + " zeros");
 
   }
 
@@ -44,9 +46,12 @@ public class ArrayDemo{
     int count = 0;
     for (int i = 0; i < nums.length; i++){
       for (int x = 0; x < nums[i].length; x++){
-        if (nums[i][x] == )
+        if (nums[i][x] == 0){
+          count++;
+        }
       }
     }
+    return count;
   }
 
   //2. Calculate the sum of a 2d array
