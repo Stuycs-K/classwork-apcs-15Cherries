@@ -14,9 +14,12 @@ public class ArrayDemo{
     System.out.println(Arrays.deepToString(arr) + " has " + countZeros2D(arr) + " zeros");
     System.out.println("the elements of " + Arrays.deepToString(arr) + " have a sum of " + arr2DSum(arr));
     int [][] negArr = new int [][] { {2, -3, 6, -9}, {9, -8, 4, 2}, {5, -1, -3, 7} };
-    System.out.println("orginal array" + Arrays.deepToString(negArr));
+    System.out.println("orginal array: " + Arrays.deepToString(negArr));
     replaceNegative(negArr);
-    System.out.println("changed array" + Arrays.deepToString(negArr));
+    System.out.println("changed array: " + Arrays.deepToString(negArr));
+    arr = new int [] [] { {10, 7, 3}, {8, 2, 6}, {9, 1, 4}};
+    int [][] Copy = copy(arr);
+    System.out.println("orginal array: " + arrToString(arr) + " copied array: " + arrToString(Copy));
 
 
   }
@@ -98,8 +101,19 @@ public class ArrayDemo{
   //DO NOT use any built in methods that "copy" an array.
   //You SHOULD write a helper method for this.
   //If you don't see a good way to do that, you should stop and look at prior methods.
+  public static int [] copyEachArray(int [] array){
+    int [] newArray = new int [array.length];
+    for (int i = 0; i < array.length; i++){
+      newArray[i] = array[i];
+    }
+    return newArray;
+  }
   public static int[][] copy(int[][] nums){
-    return new int[1][1];
+    int [][] copy = new int [nums.length] [nums[0].length];
+    for (int i = 0; i < nums.length; i++){
+      copy[i] = copyEachArray(nums[i]);
+    }
+    return copy;
   }
 
   //5. Rotate an array by returning a new array with the rows and columns swapped.
