@@ -10,8 +10,9 @@ public class ArrayDemo{
     System.out.println("Arrays.toString prints " + Arrays.toString(array) + " and my arrToString prints " + arrToString(array));
     int [][] arr = new int [][] { {1, 2, 3}, {4, 5}, {6, 7, 8, 9}};
     System.out.println("Arrays.toString prints " + (Arrays.deepToString(arr)) + " and my arrToString prints " + arrToString(arr));
-    arr = new int [][] { {0, 7, 8, 0}, {8, 0, 2, 1}, {0, 3, 45, 0}};
+    arr = new int [][] { {0, 7, 8, 0}, {8, 0, 2, 1}, {0, 3, 4, 5, 0}};
     System.out.println(Arrays.deepToString(arr) + " has " + countZeros2D(arr) + " zeros");
+    System.out.println("the elements of " + Arrays.deepToString(arr) + " have a sum of " + arr2DSum(arr));
 
   }
 
@@ -58,7 +59,13 @@ public class ArrayDemo{
   /*Return the sum of all of the values in the 2D array
    *Use a nested loop instead of a helper method*/
   public static int arr2DSum(int[][]nums){
-    return 0;
+    int sum = 0;
+    for (int i = 0; i < nums.length; i++){
+      for (int x = 0; x < nums[i].length; x++){
+        sum += nums[i][x];
+      }
+    }
+    return sum;
   }
 
   //3. Modify a given 2D array of integer as follows:
