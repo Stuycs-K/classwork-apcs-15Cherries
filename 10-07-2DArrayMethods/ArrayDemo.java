@@ -7,23 +7,84 @@ public class ArrayDemo{
     //Compare Arrays.toString(yourArray) to YOUR arrayToString() method to make sure yours is correct
     //do not use any other Arrays.method()
     int [] array = new int [] {1, 2, 3, 4};
+    int [][] arr = new int [][] { {0, 7, 8, 0}, {8, 0, 2, 1}, {0, 3, 4, 5, 0}};
     System.out.println("Arrays.toString prints " + Arrays.toString(array) + " and my arrToString prints " + arrToString(array));
-    int [][] arr = new int [][] { {1, 2, 3}, {4, 5}, {6, 7, 8, 9}};
-    System.out.println("Arrays.toString prints " + (Arrays.deepToString(arr)) + " and my arrToString prints " + arrToString(arr));
-    arr = new int [][] { {0, 7, 8, 0}, {8, 0, 2, 1}, {0, 3, 4, 5, 0}};
+    System.out.println("Arrays.deepToString prints " + (Arrays.deepToString(arr)) + " and my arrToString prints " + arrToString(arr));
+    System.out.println("------------------------------------------");
     System.out.println(Arrays.deepToString(arr) + " has " + countZeros2D(arr) + " zeros");
+    System.out.println("------------------------------------------");
     System.out.println("the elements of " + Arrays.deepToString(arr) + " have a sum of " + arr2DSum(arr));
+    System.out.println("------------------------------------------");
     int [][] negArr = new int [][] { {2, -3, 6, -9}, {9, -8, 4, 2}, {5, -1, -3, 7} };
     System.out.println("orginal array: " + Arrays.deepToString(negArr));
     replaceNegative(negArr);
     System.out.println("changed array: " + Arrays.deepToString(negArr));
-    arr = new int [] [] { {10, 7, 3}, {8, 2, 6}, {9, 1, 4}};
+    System.out.println("------------------------------------------");
     int [][] Copy = copy(arr);
     System.out.println("orginal array: " + Arrays.deepToString(arr) + " copied array: " + Arrays.deepToString(Copy));
+    arr = new int [] [] { {2, 3, 4}, {5, 6}, {7, 8, 9, 10}};
+    System.out.println("orginal array now: " + Arrays.deepToString(arr) + " while copied array remains: " + Arrays.deepToString(Copy));
+    System.out.println("------------------------------------------");
+    arr = new int [] [] { {2, 3, 4}, {5, 6, 10}, {7, 8, 9}};
     System.out.println(Arrays.deepToString(arr) + " has elements swapped to " + Arrays.deepToString(swapRC(arr)));
+    System.out.println("------------------------------------------");
     System.out.println(htmlTable(new int[][]{{1,2},{3}}));                    //rectangular array
-
-
+    System.out.println(htmlTable(arr));                    //rectangular array
+    System.out.println("------------------------------------------");
+    System.out.println("------------------------------------------");
+    array = new int [] {47, 83, 102, 4, 13};
+    arr = new int [][] { {0, 25, 39, 84}, {47, 61, 0, 99, 21}, {63, 0, 59}};
+    System.out.println("Arrays.toString prints " + Arrays.toString(array) + " and my arrToString prints " + arrToString(array));
+    System.out.println("Arrays.deepToString prints " + (Arrays.deepToString(arr)) + " and my arrToString prints " + arrToString(arr));
+    System.out.println("------------------------------------------");
+    System.out.println(Arrays.deepToString(arr) + " has " + countZeros2D(arr) + " zeros");
+    System.out.println("------------------------------------------");
+    System.out.println("the elements of " + Arrays.deepToString(arr) + " have a sum of " + arr2DSum(arr));
+    System.out.println("------------------------------------------");
+    negArr = new int [][] { {-1, 3, -4, 8, 2}, {8, -4, 3, 5, -1}, {-1, -3, -2, 4, 6}};
+    System.out.println("orginal array: " + Arrays.deepToString(negArr));
+    replaceNegative(negArr);
+    System.out.println("changed array: " + Arrays.deepToString(negArr));
+    System.out.println("------------------------------------------");
+    Copy = copy(arr);
+    System.out.println("orginal array: " + Arrays.deepToString(arr) + " copied array: " + Arrays.deepToString(Copy));
+    arr = new int [] [] { {2, 3, 4}, {5, 6}, {7, 8, 9, 10}};
+    System.out.println("orginal array now: " + Arrays.deepToString(arr) + " while copied array remains: " + Arrays.deepToString(Copy));
+    System.out.println("------------------------------------------");
+    arr = new int [] [] { {7, 8, 9, 2}, {27, 33, 91, 4}, {62, 35, 71, 99}};
+    System.out.println(Arrays.deepToString(arr) + " has elements swapped to " + Arrays.deepToString(swapRC(arr)));
+    System.out.println("------------------------------------------");
+    System.out.println(htmlTable(arr));                    //rectangular array
+    System.out.println("------------------------------------------");
+    System.out.println("------------------------------------------");
+    array = new int [] {27, 34, 86, 71};
+    arr = new int [][] { {0, 0, 27, 6}, {99, 66, 0, 81, 23, 0}, {33, 0, 87, 0, 12, 49, 50}};
+    System.out.println("Arrays.toString prints " + Arrays.toString(array) + " and my arrToString prints " + arrToString(array));
+    System.out.println("Arrays.deepToString prints " + (Arrays.deepToString(arr)) + " and my arrToString prints " + arrToString(arr));
+    System.out.println("------------------------------------------");
+    System.out.println(Arrays.deepToString(arr) + " has " + countZeros2D(arr) + " zeros");
+    System.out.println("------------------------------------------");
+    System.out.println("the elements of " + Arrays.deepToString(arr) + " have a sum of " + arr2DSum(arr));
+    System.out.println("------------------------------------------");
+    System.out.println(htmlTable(arr));                    //rectangular array
+    System.out.println("------------------------------------------");
+    negArr = new int [][] { {5, -3, 0}, {7, -2, -6, 1}, {-79, 51, -99, -23, 45}};
+    System.out.println("orginal array: " + Arrays.deepToString(negArr));
+    replaceNegative(negArr);
+    System.out.println("changed array: " + Arrays.deepToString(negArr));
+    System.out.println("------------------------------------------");
+    Copy = copy(arr);
+    System.out.println("orginal array: " + Arrays.deepToString(arr) + " copied array: " + Arrays.deepToString(Copy));
+    arr = new int [] [] { {2, 3, 4}, {5, 6}, {7, 8, 9, 10}};
+    System.out.println("orginal array now: " + Arrays.deepToString(arr) + " while copied array remains: " + Arrays.deepToString(Copy));
+    System.out.println("------------------------------------------");
+    arr = new int [] [] { {4, 5}, {91, 40} };
+    System.out.println(Arrays.deepToString(arr) + " has elements swapped to " + Arrays.deepToString(swapRC(arr)));
+    System.out.println("------------------------------------------");
+    arr = new int [][] {{}};
+    System.out.println(Arrays.deepToString(arr) + " has " + countZeros2D(arr) + " zeros");
+    System.out.println(Arrays.deepToString(arr) + " has a sum of " + arr2DSum(arr));
+    System.out.println(htmlTable(arr));
   }
 
   //0. Include your prior methods to help you print a 1D/2D array of ints.
