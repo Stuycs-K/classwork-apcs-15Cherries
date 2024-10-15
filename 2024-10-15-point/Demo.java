@@ -17,6 +17,6 @@ public class Demo{
     System.out.println("copied point: " + p3);
     System.out.println( distance(p1,p2));
     //System.out.println( Point.distance(p1,p2));
-    //System.out.println( p1.distanceTo(p2));
+    System.out.println( p1.distanceTo(p2));
   }
 }
