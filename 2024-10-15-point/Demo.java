@@ -30,20 +30,24 @@ public class Demo{
     System.out.println( distance(p6,p7));
     System.out.println( Point.distance(p6,p7));
     System.out.println( p6.distanceTo(p7));
+    System.out.println("distance from (-1,-1) to (9,-6) using 3 different methods:");
+    System.out.println( distance(p2,p6));
+    System.out.println( Point.distance(p2,p6));
+    System.out.println( p2.distanceTo(p6));
 
     Point eqTri1 = new Point (0,0);
     Point eqTri2 = new Point (1,0);
     double yOfThirdPoint = -1 * Math.sqrt(1 - 0.25);
     Point eqTri3 = new Point (0.5, yOfThirdPoint);
-    System.out.println("side length of eqTri1 to eqTri2 found using 3 different methods:");
+    System.out.println("side length of point 1 to point 2 found using 3 different methods:");
     System.out.println( distance(eqTri1,eqTri2));
     System.out.println( Point.distance(eqTri1,eqTri2));
     System.out.println( eqTri1.distanceTo(eqTri2));
-    System.out.println("side length of eqTri1 to eqTri3 found using 3 different methods:");
+    System.out.println("side length of point 1 to point 3 found using 3 different methods:");
     System.out.println( distance(eqTri1,eqTri3));
     System.out.println( Point.distance(eqTri1,eqTri3));
     System.out.println( eqTri1.distanceTo(eqTri3));
-    System.out.println("side length of eqTri2 to eqTri3 found using 3 different methods:");
+    System.out.println("side length of point 2 to point 3 found using 3 different methods:");
     System.out.println( distance(eqTri2,eqTri3));
     System.out.println( Point.distance(eqTri2,eqTri3));
     System.out.println( eqTri2.distanceTo(eqTri3));
