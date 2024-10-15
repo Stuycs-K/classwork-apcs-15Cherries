@@ -3,12 +3,13 @@ public class Point{
   private double x,y;
 
   public String toString(){
-    return ("(" + x + ", " + y + ")");
+    return ("(" + this.x + ", " + this.y + ")");
   }
 
   //Initialize this Point to have the same values as the other Point.
   public Point(Point other){
-    //COMPLETE THIS SECOND
+    this.x = other.x;
+    this.y = other.y;
     //Then write test cases.
   }
 
