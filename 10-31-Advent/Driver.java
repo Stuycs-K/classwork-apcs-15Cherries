@@ -24,6 +24,8 @@ public class Driver{
       return; //you can return from a void function just don't put a value.
       }
 
+      System.out.println(TriangleTester.countTrianglesA(inputTri.txt));
+
 
     }
 }
