@@ -4,34 +4,39 @@ import java.util.Scanner;
 
 public class TriangleTester{
 
-  try {
-    File file = new File("inputTri.txt");
-    Scanner input = new Scanner(file);
-    while(input.hasNextLine()){
-      System.out.println(input.nextLine());
+  public static boolean isTriangle(String sides){
+    String [] triSides = sides.split(" ");
+    int sideA = Integer.parseInt(triSides[0]);
+    int sideB = Integer.parseInt(triSides[1]);
+    int sideC = Integer.parseInt(triSides[2]);
+    if (sideA + sideB < sideC && sideA + sideC < sideB && sideB + sideC < sideA){
+      return true;
     }
-      //do something with the next line of the file
-    //CODE THAT SCANS THE FILE.
-    input.close();//releases the file from your program
+    return false;
+  }
 
-    } catch (FileNotFoundException ex) {
-    //File not found what should you do?
-    System.out.println("File not found");
-    return; //you can return from a void function just don't put a value.
-    }
+  /*public static int countTrianglesA(String fileName){
+    try {
+        File file = new File("fileName");//1
+        Scanner input = new Scanner(file);
+        //CODE THAT SCANS THE FILE.
+        input.close();//releases the file from your program
 
-  public static int countTrianglesA(String fileName){
+      } catch (FileNotFoundException ex) {
+        //File not found what should you do?
+        System.out.println("File not found");
+      }
     int count = 0;
-    File file = new File("fileName");
+    File file = new File(fileName);
     Scanner input = new Scanner(file);
     int [] sideA;
     while(input.hasNextLine()){
       System.out.println(input.nextLine());
-      sideA = (input.NextLine()).split();
+      sideA = (input.nextLine()).split(" ");
       //System.out.println(sideA);
     }
-    return sideA;
-  }
+    return count;
+  }*/
 
 
 }
