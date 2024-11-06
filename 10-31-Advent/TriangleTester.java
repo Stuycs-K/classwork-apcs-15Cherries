@@ -4,11 +4,7 @@ import java.util.Scanner;
 
 public class TriangleTester{
 
-  public static boolean isTriangle(String sides){
-    String [] triSides = sides.split("\\s+");
-    int sideA = Integer.parseInt(triSides[0]);
-    int sideB = Integer.parseInt(triSides[1]);
-    int sideC = Integer.parseInt(triSides[2]);
+  public static boolean isTriangle(int sideA, int sideB, int sideC){
     return sideA + sideB > sideC && sideA + sideC > sideB && sideB + sideC > sideA;
   }
 
@@ -19,7 +15,11 @@ public class TriangleTester{
         Scanner input = new Scanner(file);
 
         while(input.hasNextLine()){
-          if (isTriangle (input.nextLine())){
+          String [] triSides = (input.nextLine()).split("\\s+");
+          int sideA = Integer.parseInt(triSides[0]);
+          int sideB = Integer.parseInt(triSides[1]);
+          int sideC = Integer.parseInt(triSides[2]);
+          if (isTriangle(sideA, sideB, sideC)){
             count++;
           }
         }
@@ -37,6 +37,7 @@ public class TriangleTester{
         Scanner input = new Scanner(file);
 
         while(input.hasNextLine()){
+          input.nextLine();
           count++;
         }
         input.close();
@@ -58,22 +59,22 @@ public class TriangleTester{
 
       int i = 0;
       while (input.hasNextLine() && i < rows){
-        String triSides = input.nextLine().split.("\\s+");
+        String [] triSides = (input.nextLine()).split("\\s+");
         for (int x = 0; x < 3; x++){
-          values[i][x] = Interger.parseInt(triSides[x]);
+          fileVal[i][x] = Integer.parseInt(triSides[x]);
         }
-        i++
+        i++;
       }
       input.close();
 
       for (int x = 0; x < 3; x++){
-        for (int i = 0; i < rows; i+=3){
-          int sideA = fileVal[i][x];
-          int sideB = fileVal[i+1][x];
-          int sideC = fileVal[i+2][x];
+        for (int io = 0; io < rows; io+=3){
+          int sideA = fileVal[io][x];
+          int sideB = fileVal[io+1][x];
+          int sideC = fileVal[io+2][x];
 
           if (isTriangle(sideA, sideB, sideC)){
-            count++
+            count++;
           }
         }
       }
