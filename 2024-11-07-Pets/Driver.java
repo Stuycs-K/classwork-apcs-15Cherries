@@ -1,5 +1,6 @@
 public class Driver{
-  public static void (String[] args){
-
+  public static void main(String[] args){
+    Animal cow = new Animal("mooooo", 5, "cow");
+    cow.speak();
   }
 }
