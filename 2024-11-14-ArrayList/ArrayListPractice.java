@@ -19,8 +19,7 @@ public class ArrayListPractice{
   public static void replaceEmpty( ArrayList<String> original){
   //Modify the ArrayList such that it has all of the empty strings are
   //replaced with the word "Empty".
-    int arraySize = original.size();
-    for (int i = 0; i < arraySize; i++){
+    for (int i = 0; i < original.size(); i++){
       if (original.get(i).equals("")){
         original.set(i, "Empty");
       }
@@ -40,6 +39,25 @@ public class ArrayListPractice{
   //return a new ArrayList that has all values of a and b in alternating order that is:
   //a[0], b[0], a[1], b[1]...
   //If one list is longer than the other, just attach the remaining values to the end.
-  return a;
+    ArrayList<String> mixedArray = new ArrayList<String>();
+    ArrayList<String> shortestOne;
+    ArrayList<String> longestOne;
+    if (a.size() >= b.size()){
+      shortestOne = b;
+      longestOne = a;
+    }
+    else{
+      shortestOne = a;
+      longestOne = b;
+    }
+    for (int i = 0; i < shortestOne.size(); i++){
+      mixedArray.add(shortestOne.get(i));
+      mixedArray.add(longestOne.get(i));
+    }
+    for (int i = shortestOne.size(); i < longestOne.size(); i ++){
+      mixedArray.add(longestOne.get(i));
+    }
+
+    return mixedArray;
   }
 }

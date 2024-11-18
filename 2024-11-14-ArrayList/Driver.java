@@ -12,6 +12,8 @@ public class Driver{
     System.out.println(trial2);
     System.out.println(ArrayListPractice.mixLists(trial, trial2));
 
+    System.out.println("------------------------------------------------");
+
     ArrayList<String> tenRandom = ArrayListPractice.createRandomArray(10);
     System.out.println("array of size 10: " + tenRandom);
     ArrayList<String> thirteenRandom = ArrayListPractice.createRandomArray(13);
@@ -38,7 +40,19 @@ public class Driver{
     System.out.println("array of size 13 reversed: " + ArrayListPractice.makeReversedList(thirteenRandom));
     System.out.println("array of size 7 reversed: " + ArrayListPractice.makeReversedList(sevenRandom));
     System.out.println("array of size 0 reversed: " + ArrayListPractice.makeReversedList(noRandom));
-    System.out.println("first 10 of array of size 200,000 reversed: " + ArrayListPractice.makeReversedList(huge));
+    System.out.println("first 10 of array of size 200,000 reversed: " + ArrayListPractice.makeReversedList(huge).subList(0,10));
+
+    System.out.println("mixed array from array of size 10 and 13: " + ArrayListPractice.mixLists(tenRandom, thirteenRandom));
+    System.out.println("mixed array from array of size 7 and 0: " + ArrayListPractice.mixLists(sevenRandom, noRandom));
+    System.out.println("mixed array from array of size 7 and 13: " + ArrayListPractice.mixLists(sevenRandom, thirteenRandom));
+    System.out.println("mixed array from array of size 10 and 7: " + ArrayListPractice.mixLists(tenRandom, sevenRandom));
+    System.out.println("first 10 of mixed array from array of size 13 and 200,000: " + ArrayListPractice.mixLists(thirteenRandom, huge).subList(0,10));
+    System.out.println("first 10 of mixed array from array of size 200,000 and 7: " + ArrayListPractice.mixLists(huge, sevenRandom).subList(0,10));
+
+
+
+
+
 
 
   }
