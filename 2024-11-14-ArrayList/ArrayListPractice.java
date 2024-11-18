@@ -1,12 +1,18 @@
+import java.util.ArrayList;
+
 public class ArrayListPractice{
   public static ArrayList<String> createRandomArray(int size){
-    ArrayList<String> random = new ArrayList<String>();
+    ArrayList<String> randomArray = new ArrayList<String>();
+
     for (int i = 0; i < size; i++){
-      random.add("" + Math.random());
-      if (random.get(i).equals("0")){
-        random.set(i, "");
+      int random = (int) (Math.random() * 10);
+      if (random == 0){
+        randomArray.add("");
+      }
+      else{
+        randomArray.add("" + random);
       }
     }
-    return random;
+    return randomArray;
   }
 }
