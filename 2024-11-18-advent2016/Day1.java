@@ -14,4 +14,14 @@ public class Day1{
     }
     return null;
   }
+
+  public static int totalBlocks(String[] data){
+    int x = 0;
+    int y = 0;
+    for (int i = 0; i < data.length; i++){
+      String direction = data[i].substring(0);
+      int block = Integer.valueOf(data[i].substring(1));
+    }
+    return 0;
+  }
 }
