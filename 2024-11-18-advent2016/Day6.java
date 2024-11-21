@@ -16,13 +16,13 @@ public class Day6{
     return data;
   }
 
-  public static String commonLetter(ArrayList<String> data){
+  public static String message(ArrayList<String> data){
     String message = "";
     for (int i = 0; i < data.size(); i++){
       int mostCommon = 1;
       int index = 0;
       char letter = data.get(0).charAt(i); //first letter of first row
-      for (int x = 1; x < data.get(i).length(); x++){
+      for (int x = 1; x < data.get(x).length(); x++){
         int appears = 0;
         if (data.get(x).charAt(i) == letter){
           appears++;                   //count how many times that letter shows up in that position
@@ -32,7 +32,13 @@ public class Day6{
           index = x;                   //the char at its index is the most common letter
         }
       }
+      message += data.get(index).charAt(i);
     }
-    return null;
+    return message;
+  }
+
+  public static void main (String [] args){
+    ArrayList<String> data = parse("Day6Input.txt");
+    System.out.println(message(data));
   }
 }
