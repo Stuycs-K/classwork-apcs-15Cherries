@@ -15,4 +15,24 @@ public class Day6{
     }
     return data;
   }
+
+  public static String commonLetter(ArrayList<String> data){
+    String message = "";
+    for (int i = 0; i < data.size(); i++){
+      int mostCommon = 1;
+      int index = 0;
+      char letter = data.get(0).charAt(i); //first letter of first row
+      for (int x = 1; x < data.get(i).length(); x++){
+        int appears = 0;
+        if (data.get(x).charAt(i) == letter){
+          appears++;                   //count how many times that letter shows up in that position
+        }
+        if (appears > mostCommon){
+          mostCommon = appears;        //if that letter appears the most
+          index = x;                   //the char at its index is the most common letter
+        }
+      }
+    }
+    return null;
+  }
 }
