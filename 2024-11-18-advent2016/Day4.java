@@ -17,7 +17,17 @@ public class Day4 {
     return data;
   }
 
+  public static boolean isReal(String input){
+    String letters = input.substring(0,input.lastIndexOf("-"));
+    String [] array = letters.split("-");
+    String checksum = "[]";
+    for (int i = 0; i < array.length; i++){
+      int size = array[i].size();
+    }
+    return false;
+  }
+
   public static void main (String [] args){
-    System.out.println(parse("Day4Input.txt"));
+    System.out.println(isReal("nzydfxpc-rclop-qwzhpc-qtylyntyr-769[oshgk]").toString());
   }
 }
