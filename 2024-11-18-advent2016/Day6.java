@@ -13,10 +13,10 @@ public class Day6{
     } catch (Exception e){
       System.out.println("file not found");
     }
-    return data;
+    return data; //array string of code
   }
 
-  public static String message(ArrayList<String> data){
+  /*public static String message(ArrayList<String> data){
     String message = "";
     for (int i = 0; i < data.size(); i++){
       int mostCommon = 1;
@@ -35,10 +35,37 @@ public class Day6{
       message += data.get(index).charAt(i);
     }
     return message;
+  }*/
+
+  public static String commonLetter(String [] column){
+
+    ArrayList<String> letters = new ArrayList<String>();
+    for (int i = 0; i < column.length; i++){
+      if (letters.indexOf(column[i]) < 0){ //if the letter is not in the array, add it
+        letters.add(column[i]);
+      }
+    }// array letters with all different letters in column
+
+    int mostCommon = 0;
+    String letter = letters.get(0);
+
+    for (int x = 0; x < letters.size(); x++){
+      int appears = 0;
+      for (int j = 0; j < column.length; j++){
+        if (letters.get(x).equals(column[j])){
+          appears++;
+        }
+      }
+      if (appears > mostCommon){
+        mostCommon = appears;
+        letter = letters.get(x);
+      }
+    }
+    return letter;
   }
 
   public static void main (String [] args){
     ArrayList<String> data = parse("Day6Input.txt");
-    System.out.println(message(data));
+    //System.out.println(message(data));
   }
 }
