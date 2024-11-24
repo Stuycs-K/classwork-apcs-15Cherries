@@ -18,32 +18,25 @@ public class Day1{
   public static int totalBlocks(String[] data){
     int x = 0;
     int y = 0;
-    int facing = 90;  //0 = North; 90 = East; 180 = South; 270 = West
+    int dx = 0, dy = 1; //facing north
+
     for (int i = 0; i < data.length; i++){
       String direction = data[i].substring(0,1);
       int block = Integer.parseInt(data[i].substring(1));
-      if (direction.equals("R")){
-        facing = (facing + 90) % 360;
+
+      if (direction.equals("L")){
+        int storeVal = dx;
+        dx = -dy;
+        dy = storeVal; //90 degree counterclockwise rotation
       }
-      else if (direction.equals("L")){
-        facing = (facing + 270) % 360;
+      else if (direction.equals("R")){
+        int storeVal = dx;
+        dx = dy;
+        dy = -storeVal;//90 degree clockwise rotation
       }
-      if (facing == 0){
-        y += block;
-        break;
-      }
-      if (facing == 90){
-        x += block;
-        break;
-      }
-      if (facing == 180){
-        y -= block;
-        break;
-      }
-      if (facing == 270){
-        x -= block;
-        break;
-      }
+
+      x += dx * block;
+      y += dy * block; //for each coordinate move in the correct direction
     }
     return Math.abs(x) + Math.abs(y);
   }
@@ -51,8 +44,12 @@ public class Day1{
   public static void main (String [] args){
     String [] data = parse("Day1Input.txt");
     //String [] try = new String [] {"R2", "L3"};
-    System.out.println(totalBlocks(new String [] {"R2", "L3"}));
-    System.out.println(totalBlocks(new String [] {"R2", "R2", "R2"}));
+    //System.out.println(totalBlocks(new String [] {"R2", "L3"}));
+    //System.out.println(totalBlocks(new String [] {"R2", "R2", "R2"}));
+    //System.out.println(totalBlocks(new String [] {"R5", "L5", "R5", "R3"}));
+    System.out.println(totalBlocks(data));
+
+
 
   }
 }
