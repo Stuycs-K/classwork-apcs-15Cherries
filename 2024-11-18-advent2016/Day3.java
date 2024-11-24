@@ -58,7 +58,7 @@ public class Day3{
           if (!line.isEmpty()){
             String [] triSides = line.split("//s+");
             if (triSides.length == 3){ // if the line actually has 3 sides
-              count++
+              count++;
             }
           }
         }
@@ -81,11 +81,26 @@ public class Day3{
 
       int i = 0;
       while (input.hasNextLine() && i < rows){
-        String [] triSides = (input.nextLine()).split("\\s+");
-        for (int x = 0; x < 3; x++){
-          fileVal[i][x] = Integer.parseInt(triSides[x]);
+        String line = input.nextLine().trim();//check for unwanted white spaces
+        if (!line.isEmpty()){
+          continue;
         }
-        i++;
+
+        String [] triSides = (input.nextLine()).split("\\s+");
+        if (triSides.length != 3){ //check for valid lines
+          System.out.println ("invalid line: " + line);
+          continue;
+        }
+
+        try {
+          for (int x = 0; x < 3; x++){
+            fileVal[i][x] = Integer.parseInt(triSides[x]);
+          }
+          i++;
+        } catch (NumberFormatException e){
+          System.out.println("Invalid number in line: " + line);
+        }
+
       }
       input.close();
 
