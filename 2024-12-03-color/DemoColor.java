@@ -1,7 +1,7 @@
 import java.util.Arrays;
 
 public class DemoColor{
-  static String [] dino = {
+  public static String [] dino = {
     "               _________",
     "              /         \\",
     "             /   *   *   \\____",
@@ -15,18 +15,38 @@ public class DemoColor{
     "   \\    /                    \\    /",
     "    \\__/                      \\__/",};
 
+    public static final String clearScreen = "\u001b[2J";
+    public static final String defaultCursor = "\u001b[2J";
+    public static final String hideCursor = "\u001b[?25l";
+    public static final String showCursor = "\u001b[?25h";
+
+    public static void sleep(int milli){
+      try{
+              Thread.sleep(milli);
+      }catch(Exception e){
+      }
+    }
 
   public static void main(String[] args){
-    //System.out.print("\u001b[" + 3 + 1 + ";" + 7 + 1 + "m");
-    //System.out.print("\u001b[31m");
+    System.out.println(clearScreen);
     int x = 0;
-    for (int i = 0; i < dino.length; i++){
-      if (x == 8){
-        x = 0;
+    try{
+      for (int j = 0; j < 10; j++){
+        for (int i = 0; i < dino.length; i++){
+          if (x == 8){
+            x = 0;
+          }
+          System.out.print("\u001b[" + 3 + x + "m");
+          System.out.println(dino[i]);
+          x++;
+          Thread.sleep(200);
+        }
+        System.out.println(defaultCursor);
       }
-      System.out.print("\u001b[" + 3 + x + "m");
-      System.out.println(dino[i]);
-      x++;
+    } catch (Exception e){
+      System.out.println("need an eraser");
     }
+
+    System.out.print("\u001b[0m");
   }
 }
