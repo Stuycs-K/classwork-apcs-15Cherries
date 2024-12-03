@@ -42,6 +42,20 @@ public class Day1{
     return totalDistance;
   }
 
+  public static int similarityScore( int [] a, int [] b ){
+    sort(a);
+    sort(b);
+    int similarityScore = 0;
+    for (int i = 0; i < a.length; i++){
+      for (int x = 0; x < b.length; x++){
+        if (a[i] == b[x]){
+          similarityScore += a[i];
+        }
+      }
+    }
+    return similarityScore;
+  }
+
   public static void main (String[] args){
     //int [] a = {3, 4, 2, 1, 3, 3};
     //int [] b = {4, 3, 5, 3, 9, 3};
@@ -57,6 +71,6 @@ public class Day1{
     }
     //System.out.println(Arrays.toString(a));
     //System.out.println(Arrays.toString(b));
-    System.out.println(totalDistance(a, b));
+    System.out.println(similarityScore(a, b));
   }
 }
