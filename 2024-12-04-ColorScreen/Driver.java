@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Driver{
   //MODIFIERS
   public static final int BRIGHT = 1;
@@ -65,6 +67,17 @@ public class Driver{
     }
   }
 
+  ///////////////////////////////////////////////////////////////////////
+
+  public static int [] randomArray(){
+    int [] random = new int [3];
+    Random x = new Random();
+    for (int i = 0; i < random.length; i++){
+      random[i] = x.nextInt(100);
+    }
+    return random;
+  }
+
   public static void main(String[]args){
     final int width = 80;
     final int height = 30;
@@ -100,6 +113,8 @@ public class Driver{
 
         // Reset terminal and show cursor when finished
     System.out.print(RESET);
+
+    int [] random = randomArray();
 
 
 
