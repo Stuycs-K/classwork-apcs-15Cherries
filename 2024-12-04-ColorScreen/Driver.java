@@ -94,8 +94,37 @@ public class Driver{
     "            |~~~|" ,
     "            |~~~|",
     "            |~~~|" ,
-    "            |___|    "
-  };
+    "            |___|    "};
+
+  public static int [] rainbow = {RED, YELLOW, GREEN, BLUE, MAGENTA};
+
+  public static void rainbowLine(int i){
+    color(rainbow[i % rainbow.length], background(rainbow[(i + 1) % rainbow.length]));
+  }
+
+  public static void printLine (int row, int column, int limit, String character){
+    for (int i = 0; i <= limit; i++){
+      go (row, column);
+      rainbowLine(i);
+      System.out.print(character);
+    }
+  }
+
+  public static void printLine (int row, int limit, String character){
+    for (int i = 0; i <= limit; i++){
+      go (row, i);
+      rainbowLine(i);
+      System.out.print(character);
+    }
+  }
+
+  public static void printColumn (int column, int limit, String character){
+    for (int i = 2; i <= limit; i++){
+      go (i, column);
+      rainbowLine(i);
+      System.out.print(character);
+    }
+  }
 
   public static void main(String[]args){
     final int width = 80;
@@ -104,14 +133,8 @@ public class Driver{
 
     System.out.print(CLEAR_SCREEN + HIDE_CURSOR);
 
-    int [] rainbow = {RED, YELLOW, GREEN, BLUE, MAGENTA};
-
     //top row
-    for (int i = 0; i <= width; i++){
-      go (1, i);
-      color(rainbow[i % rainbow.length], background(rainbow[(i + 1) % rainbow.length]));
-      System.out.print(" ");
-    }
+    printLine(1, width, " ");
 
     System.out.print(RESET);
 
@@ -123,7 +146,7 @@ public class Driver{
       if (number < 25){
         color(RED + 60);
       }
-      if (number > 75){
+      else if (number > 75){
         color(GREEN + 60);
       }
       else{ color(WHITE);}
@@ -147,26 +170,13 @@ public class Driver{
     }
 
     //left and right borders
-    for (int row = 2; row < height; row++) {
-        // Left side
-        go(row, 1);
-        color(rainbow[row % rainbow.length], background(rainbow[(row + 1) % rainbow.length]));
-        System.out.print(" ");
-
-        // Right side
-        go(row, width);
-        color(rainbow[row % rainbow.length], background(rainbow[(row + 1) % rainbow.length]));
-        System.out.print(" ");
-    }
+    printColumn(1, height, " ");
+    printColumn(width, height, " ");
 
     //bottom border
-    for (int i = 1; i <= width; i++) {
-        go(height, i);
-        color(rainbow[i % rainbow.length], background(rainbow[(i + 1) % rainbow.length]));
-        System.out.print(" ");
-    }
+    printLine(height, width, " ");
 
-        // Reset terminal and show cursor when finished
+    // Reset terminal and show cursor when finished
     System.out.print(RESET);
     go(31,1);
 
