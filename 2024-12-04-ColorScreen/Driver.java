@@ -81,15 +81,32 @@ public class Driver{
   public static void main(String[]args){
     final int width = 80;
     final int height = 30;
+    int [] random = randomArray();
 
     System.out.print(CLEAR_SCREEN + HIDE_CURSOR);
 
     int [] rainbow = {RED, YELLOW, GREEN, BLUE, MAGENTA};
 
+    //top row
     for (int i = 0; i <= width; i++){
       go (1, i);
       color(rainbow[i % rainbow.length], background(rainbow[(i + 1) % rainbow.length]));
       System.out.print(" ");
+    }
+
+    System.out.print(RESET);
+
+    for (int i = 0; i < random.length; i++){
+      int space = (width / (random.length+1)) * (i+1);
+      go(2, space);
+      int number = random[i];
+      if (number < 25){
+        color(RED + 60);
+      }
+      if (number > 75){
+        color(GREEN + 60);
+      }
+      System.out.print(random[i]);
     }
 
 
@@ -114,7 +131,6 @@ public class Driver{
         // Reset terminal and show cursor when finished
     System.out.print(RESET);
 
-    int [] random = randomArray();
 
 
 
