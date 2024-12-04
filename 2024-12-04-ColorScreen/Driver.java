@@ -78,6 +78,25 @@ public class Driver{
     return random;
   }
 
+  /////////////////////////////////////////////////////////////////////////
+  public static String [] flower = {
+    "             @@@",
+    "            @@@@@",
+    "             @@@",
+    "          @@@@@@@@@",
+    "         @@@@@@@@@@@",
+    "          @@@@@@@@@",
+    "             @@@" ,
+    "             @@@" ,
+    "          \\\\|||||//",
+    "           \\|~~~|/",
+    "            |~~~|"   ,
+    "            |~~~|" ,
+    "            |~~~|",
+    "            |~~~|" ,
+    "            |___|    "
+  };
+
   public static void main(String[]args){
     final int width = 80;
     final int height = 30;
@@ -96,6 +115,7 @@ public class Driver{
 
     System.out.print(RESET);
 
+    //row of random integers
     for (int i = 0; i < random.length; i++){
       int space = (width / (random.length+1)) * (i+1);
       go(2, space);
@@ -106,10 +126,27 @@ public class Driver{
       if (number > 75){
         color(GREEN + 60);
       }
+      else{ color(WHITE);}
       System.out.print(random[i]);
     }
 
+    //horizontal separator
+    for (int i = 0; i < width; i++){
+      go(3,i);
+      color(rainbow[4]);
+      System.out.println("*");
+    }
 
+    for (int i = 0; i < flower.length; i++){
+      go(i+9, 26);
+      if (i < 8){
+        color(RED + 60);
+      }
+      else{ color(GREEN + 60);}
+      System.out.println(flower[i]);
+    }
+
+    //left and right borders
     for (int row = 2; row < height; row++) {
         // Left side
         go(row, 1);
@@ -122,6 +159,7 @@ public class Driver{
         System.out.print(" ");
     }
 
+    //bottom border
     for (int i = 1; i <= width; i++) {
         go(height, i);
         color(rainbow[i % rainbow.length], background(rainbow[(i + 1) % rainbow.length]));
@@ -130,7 +168,7 @@ public class Driver{
 
         // Reset terminal and show cursor when finished
     System.out.print(RESET);
-
+    go(31,1);
 
 
 
