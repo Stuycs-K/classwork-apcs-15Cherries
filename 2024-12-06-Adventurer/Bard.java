@@ -1,17 +1,21 @@
 public class Bard extends Adventurer{
-  /*private int age;
-  private String hometown;
-  private String instrument;*/
   private String SpecialName;
   private int Special;
   private int SpecialMax;
+  //attack power ??
 
   public Bard(String name){
     super(name);
+    this.SpecialName = "Ballads";     //skill is singing
+    this.Special = 5;                 //created with 5 ballads
+    this.SpecialMax = 52;             //can only sing 52 ballads at at ime
   }
 
   public Bard(String name, int hp){
     super(name, hp);
+    this.SpecialName = "Ballads";
+    this.Special = 5;
+    this.SpecialMax = 52;
   }
 
   public String getSpecialName(){
@@ -31,12 +35,12 @@ public class Bard extends Adventurer{
   }
 
   public String attack(Adventurer other){
-    return null;
+    return "bring to sleep";
   }
 
   //heall or buff the target adventurer
   public String support(Adventurer other){
-    return null;
+    return "heal the mind";
   }
 
   //heall or buff self
