@@ -44,7 +44,6 @@ public class Bard extends Adventurer{
     int damage = rand.nextInt(5) + 1;
     other.applyDamage(damage);
     return(this.getName() + " has inflicted a damge of " + damage + " hp on " + other.getName());
-
   }
 
   //heal or buff the target adventurer
@@ -79,7 +78,7 @@ public class Bard extends Adventurer{
       int songDamage = rand.nextInt(this.getSpecial()) + 1;
       this.setSpecial(this.getSpecial() - songDamage);
       other.applyDamage(songDamage);
-      return (this.getName() + " has inflicted a damge of " + songDamage + " hp on " + other.getName() + " through their musical prowess");
+      return (this.getName() + " has inflicted a damage of " + songDamage + " hp on " + other.getName() + " through their musical prowess");
     }
     else{
       return (this.getName() + " has lost their voice and can't sing");

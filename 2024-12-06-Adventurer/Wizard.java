@@ -42,7 +42,7 @@ public class Wizard extends Adventurer{
     Random rand = new Random();
     int damage = rand.nextInt(5) + 3;
     other.applyDamage(damage);
-    return(this.getName() + " has inflicted a damge of " + damage + " hp on " + other.getName());
+    return(this.getName() + " has inflicted a damage of " + damage + " hp on " + other.getName());
 
   }
 
@@ -83,7 +83,7 @@ public class Wizard extends Adventurer{
       int damage = rand.nextInt(6) + 5;
       this.setSpecial(this.getSpecial() - 4);
       other.applyDamage(damage);
-      return (this.getName() + " has cast a fireball on " + other.getName() + " and inflicted a damge of " + damage + " hp ");
+      return (this.getName() + " has cast a fireball on " + other.getName() + " and inflicted a damage of " + damage + " hp ");
     }
     else{
       return (this.getName() + " has no power to cast a spell");
