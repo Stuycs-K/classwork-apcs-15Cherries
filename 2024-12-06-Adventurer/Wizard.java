@@ -1,41 +1,41 @@
 import java.util.Random;
 
 public class Wizard extends Adventurer{
-  private int spellCount;
-  private int spellMax;
+  private int mana;
+  private int manaMax;
 
   public Wizard(String name){
-    this(name, 10);
+    this(name, 10, 20);
   }
 
-  public Wizard(String name, int hp){
+  public Wizard(String name, int hp, int manaMax){
     super(name, hp);
-    this.spellMax = 20;
-    this.spellCount = spellMax;
+    this.manaMax = manaMax;
+    this.mana = manaMax;
   }
 
   public String getSpecialName(){
-    return "Cast Fire Ball";
+    return "Mana";
   }
 
   public int getSpecial(){
-    return spellCount;
+    return mana;
   }
 
   public void setSpecial(int n){
-    if (n > spellMax){
-      spellCount = spellMax;
+    if (n > manaMax){
+      mana = manaMax;
     }
     else if (n < 0){
-      spellCount = 0;
+      mana = 0;
     }
     else{
-      spellCount = n;
+      mana = n;
     }
   }
 
   public int getSpecialMax(){
-    return spellMax;
+    return manaMax;
   }
 
   public String attack(Adventurer other){
@@ -78,7 +78,7 @@ public class Wizard extends Adventurer{
 
   //hurt or hinder the target adventurer, consume some special resource
   public String specialAttack(Adventurer other){
-    if (spellMax >= 4){
+    if (mana >= 4){
       Random rand = new Random();
       int damage = rand.nextInt(6) + 5;
       this.setSpecial(this.getSpecial() - 4);
@@ -90,8 +90,6 @@ public class Wizard extends Adventurer{
     }
   }
 
-  public String toString(){
-    return this.getName() + " the Wizard";
-  }
+
 
 }

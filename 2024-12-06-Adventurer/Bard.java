@@ -6,17 +6,17 @@ public class Bard extends Adventurer{
   //attack power ??
 
   public Bard(String name){
-    this(name, 10);
+    this(name, 10, 10);
   }
 
-  public Bard(String name, int hp){
+  public Bard(String name, int hp, int songMax){
     super(name, hp);
-    this.songMax = 10;
+    this.songMax = songMax;
     this.songCount = songMax;
   }
 
   public String getSpecialName(){
-    return "Sing Song";
+    return "Songs";
   }
 
   public int getSpecial(){
