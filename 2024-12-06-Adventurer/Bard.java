@@ -11,7 +11,7 @@ public class Bard extends Adventurer{
 
   public Bard(String name, int hp){
     super(name, hp);
-    this.songMax = 50;
+    this.songMax = 10;
     this.songCount = songMax;
   }
 
@@ -62,12 +62,28 @@ public class Bard extends Adventurer{
 
   //heall or buff self
   public String support(){
-    return null;
+    int heal = 5;
+    if (heal + this.getHP() > this.getmaxHP()){
+      this.setHP(this.getmaxHP());
+    }
+    else{
+      this.setHP(this.getHP() + heal);
+    }
+    return(this.getName() + " has healed themself with " + heal + " hp");
   }
 
   //hurt or hinder the target adventurer, consume some special resource
   public String specialAttack(Adventurer other){
-    return null;
+    if (songCount > 0){
+      Random rand = new Random();
+      int songDamage = rand.nextInt(this.getSpecial()) + 1;
+      this.setSpecial(this.getSpecial() - songDamage);
+      other.applyDamage(songDamage);
+      return (this.getName() + " has inflicted a damge of " + songDamage + " hp on " + other.getName() + " through their musical prowess");
+    }
+    else{
+      return (this.getName() + " has lost their voice and can't sing");
+    }
   }
 
 }
