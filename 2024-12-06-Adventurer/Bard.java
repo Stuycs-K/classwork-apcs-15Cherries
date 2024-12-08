@@ -1,46 +1,63 @@
+import java.util.Random;
+
 public class Bard extends Adventurer{
-  private String SpecialName;
-  private int Special;
-  private int SpecialMax;
+  private int songCount;
+  private int songMax;
   //attack power ??
 
   public Bard(String name){
-    super(name);
-    this.SpecialName = "Ballads";     //skill is singing
-    this.Special = 5;                 //created with 5 ballads
-    this.SpecialMax = 52;             //can only sing 52 ballads at at ime
+    this(name, 10);
   }
 
   public Bard(String name, int hp){
     super(name, hp);
-    this.SpecialName = "Ballads";
-    this.Special = 5;
-    this.SpecialMax = 52;
+    this.songMax = 50;
+    this.songCount = songMax;
   }
 
   public String getSpecialName(){
-    return SpecialName;
+    return "Sing Song";
   }
 
   public int getSpecial(){
-    return Special;
+    return songCount;
   }
 
   public void setSpecial(int n){
-    Special = n;
+    if (n > songMax){
+      songCount = songMax;
+    }
+    else if (n < 0){
+      songCount = 0;
+    }
+    else{
+      songCount = n;
+    }
   }
 
   public int getSpecialMax(){
-    return SpecialMax;
+    return songMax;
   }
 
   public String attack(Adventurer other){
-    return "bring to sleep";
+    Random rand = new Random();
+    int damage = rand.nextInt(5) + 1;
+    other.applyDamage(damage);
+    return(this.getName() + " has inflicted a damge of " + damage + " hp on " + other.getName());
+
   }
 
-  //heall or buff the target adventurer
+  //heal or buff the target adventurer
   public String support(Adventurer other){
-    return "heal the mind";
+    Random rand = new Random();
+    int heal = rand.nextInt(5) + 3;
+    if (heal + other.getHP() > other.getmaxHP()){
+      other.setHP(other.getmaxHP());
+    }
+    else{
+      other.setHP(other.getHP() + heal);
+    }
+    return(this.getName() + " has healed " + other.getName() + " with " + heal + " hp");
   }
 
   //heall or buff self
