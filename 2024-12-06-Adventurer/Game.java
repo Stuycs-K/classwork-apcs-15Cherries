@@ -18,7 +18,18 @@ public class Game{
     Adventurer player = new Bard(userName);
 
     System.out.println(player + ", " + player.getHP() + "/" + player.getmaxHP() + ", " + player.getSpecial() + "/" + player.getSpecialMax());
+
     System.out.println("Type: (a)ttack / (sp)ecial / (su)pport / quit");
+
+    String task = userInput.nextLine();
+    while (!task.equals("quit")){
+      if (! (task.equals("a") || task.equals("sp") || task.equals("su") || task.equals("quit"))){
+        System.out.println("invalid input. please type again");
+      }
+    }
+
+    System.out.println("done");
+
 
   }
 }
