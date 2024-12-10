@@ -21,19 +21,20 @@ public class Game{
     System.out.println(player + ", " + player.getHP() + "/" + player.getmaxHP() + ", " + player.getSpecial() + "/" + player.getSpecialMax());
     System.out.println(opponent + ", " + opponent.getHP() + "/" + opponent.getmaxHP() + ", " + opponent.getSpecial() + "/" + opponent.getSpecialMax());
 
-    System.out.println("Type: (a)ttack / (sp)ecial / (su)pport / quit");
 
-    String input = userInput.nextLine();
-    while (!input.equals("quit")){
+    String input = "null";
+    while (!input.equals("quit") && opponent.getHP() > 0 && player.getHP() > 0){
+      System.out.println(player + ", " + player.getHP() + "/" + player.getmaxHP() + ", " + player.getSpecial() + "/" + player.getSpecialMax());
+      System.out.println(opponent + ", " + opponent.getHP() + "/" + opponent.getmaxHP() + ", " + opponent.getSpecial() + "/" + opponent.getSpecialMax());
       System.out.println("Type: (a)ttack / (sp)ecial / (su)pport / quit");
+      input = userInput.nextLine();
       if (! (input.equals("a") || input.equals("sp") || input.equals("su") || input.equals("quit"))){
         System.out.println("invalid input. please type again");
         break;
       }
-      if (opponent.getHP() > 0 && player.getHP() > 0){
+
         if (input.equals("a")){
           System.out.println(player.attack(opponent));
-          break;
         }
         if (input.equals("sp")){
           System.out.println(player.specialAttack(opponent));
@@ -43,7 +44,6 @@ public class Game{
           System.out.println(player.support());
           break;
         }
-      }
     }
 
     System.out.println("done");
