@@ -10,10 +10,14 @@ public class Words{
 
       for (int i = 0; i < alphabet.length(); i++){
         System.out.print(result + alphabet.charAt(i));
-        makeWords(remainingLetters - 1, result + alphabet.charAt(i), alphabet);
+        makeWords(remainingLetters - 1, result, alphabet);
       }
 
     }
+  }
+
+  public static void main (String [] args){
+    makeWords(2, "", "ab");
   }
 
 }
